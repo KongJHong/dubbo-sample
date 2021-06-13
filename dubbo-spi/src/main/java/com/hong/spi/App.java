@@ -1,5 +1,7 @@
 package com.hong.spi;
 
+import com.alibaba.dubbo.common.extension.ExtensionLoader;
+
 import java.util.ServiceLoader;
 
 /**
@@ -7,9 +9,14 @@ import java.util.ServiceLoader;
  */
 public class App {
 	public static void main(String[] args) {
-		ServiceLoader<PrintService> serviceServiceLoader = ServiceLoader.load(PrintService.class);
-		for (PrintService printService:serviceServiceLoader) {
-			printService.printInfo();
-		}
+		// JAVA原生 SPI
+//		ServiceLoader<PrintService> serviceServiceLoader = ServiceLoader.load(PrintService.class);
+//		for (PrintService printService:serviceServiceLoader) {
+//			printService.printInfo();
+//		}
+
+		// Dubbo spi
+		PrintService printService = ExtensionLoader.getExtensionLoader(PrintService.class).getDefaultExtension();
+		printService.printInfo();
 	}
 }
