@@ -11,6 +11,8 @@
     <modules>
         <module>dubbo-usage</module>
         <module>dubbo-spi</module>
+        <module>dubbo-spring</module>
+        <module>dubbo-spring-test</module>
     </modules>
 
     <properties>
